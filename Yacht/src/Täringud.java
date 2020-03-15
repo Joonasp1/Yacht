@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-
 public class Täringud {
-
     private int[] täringud = new int[5];
 
     public int[] getTäringud() {
@@ -15,6 +12,4 @@ public class Täringud {
         }
         return täringud;
     }
-
-
 }
