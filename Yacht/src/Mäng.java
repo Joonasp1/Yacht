@@ -3,6 +3,9 @@ import java.util.Scanner;
 public class Mäng {
     private Scanner scanner = new Scanner(System.in);
     private Mängija[] mängijad;
+    private Täringud täringud = new Täringud();
+    private String valik;
+    private Skoorimine skoor = new Skoorimine();
 
     private int hetkeMängijaIndeks;
 
@@ -35,6 +38,21 @@ public class Mäng {
     public void käik(Mängija mängija) {
         System.out.println(mängija.getNimi() + " käik");
 
+        täringud.veereta();
+        System.out.println(täringud.toString());
+        System.out.println("Valige täringud mida uuesti veeretada (1-5 ja eraldage tühikuga). Kirjuta \"ei\" kui ei soovi veeretada");
+        valik = scanner.next();
+        while (täringud.getKordus() < 3 && !valik.equals("ei")){ //Probleemne koht
+            täringud.veereta(täringud.getTäringud(), valik);
+            System.out.println(täringud.toString());
+            System.out.println("Valige täringud mida uuesti veeretada (1-5 ja eraldage tühikuga). Kirjuta \"ei\" kui ei soovi veeretada");
+            valik = scanner.next();
+        }
+
+        System.out.println("Valige skoorimistingimus:");
+        skoor.näitaTingimused();
+        System.out.println(täringud.toString());
+        täringud.setKordus(0);
         System.out.print("Käigu lõpp. Vajutage, et jätkata. ");
         scanner.nextLine();
         järgmine();
