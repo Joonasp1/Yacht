@@ -37,21 +37,20 @@ public class Mäng {
 
     public void käik(Mängija mängija) {
         System.out.println(mängija.getNimi() + " käik");
+        valik = "";
 
-        täringud.veereta();
-        System.out.println(täringud.toString());
-        System.out.println("Valige täringud mida uuesti veeretada (1-5 ja eraldage tühikuga). Kirjuta \"ei\" kui ei soovi veeretada");
-        valik = scanner.next();
         while (täringud.getKordus() < 3 && !valik.equals("ei")){ //Probleemne koht
-            täringud.veereta(täringud.getTäringud(), valik);
+            if(valik.equals("")) täringud.veereta();
+            else täringud.veereta(täringud.getTäringud(), valik);
+            täringud.setKordus(täringud.getKordus() + 1);
             System.out.println(täringud.toString());
-            System.out.println("Valige täringud mida uuesti veeretada (1-5 ja eraldage tühikuga). Kirjuta \"ei\" kui ei soovi veeretada");
+            System.out.println("Valige täringud mida uuesti veeretada (1-5 ja eraldage komadega). Kirjuta \"ei\" kui ei soovi veeretada");
             valik = scanner.next();
+            System.out.println(valik);
         }
 
         System.out.println("Valige skoorimistingimus:");
         skoor.näitaTingimused();
-        System.out.println(täringud.toString());
         täringud.setKordus(0);
         System.out.print("Käigu lõpp. Vajutage, et jätkata. ");
         scanner.nextLine();

@@ -17,16 +17,14 @@ public class Täringud {
             int arv =(int)(Math.round(Math.random()*5+1));
             täringud[i] = arv;
         }
-        kordus++;
         return täringud;
     }
 
     public int[] veereta(int[] täringud, String valikud){
-        String[] uuesti = valikud.split(" ");
+        String[] uuesti = valikud.split(",");
         for (String num : uuesti){
             täringud[Integer.parseInt(num) - 1] = (int)(Math.round(Math.random()*5+1));
         }
-        kordus++;
         return täringud;
     }
 
