@@ -40,6 +40,10 @@ public class Mäng {
         System.out.println(mängija.getNimi() + " käik");
         valik = "";
 
+        System.out.println("Valige skoorimistingimus:");
+        skoor.näitaTingimused();
+        tingumusvalik = scanner.nextInt();
+
         while (täringud.getKordus() < 3 && !valik.equals("ei")){ //Probleemne koht
             if(valik.equals("")) täringud.veereta();
             else täringud.veereta(täringud.getTäringud(), valik);
@@ -50,9 +54,6 @@ public class Mäng {
             System.out.println(valik);
         }
 
-        System.out.println("Valige skoorimistingimus:");
-        skoor.näitaTingimused();
-        tingumusvalik = scanner.nextInt();
         mängija.liidaSkoor(skoor.skoori(tingumusvalik,täringud.getTäringud()));
         System.out.println(mängija.getNimi() + " Skoor on: " + mängija.getSkoor());
         täringud.setKordus(0);

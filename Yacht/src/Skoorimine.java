@@ -7,7 +7,8 @@ import java.util.stream.IntStream;
 public class Skoorimine {
 
     private List<String> tingimused = new ArrayList<String>(Arrays.asList
-            ("1. Ühed", "2. Kahed", "3. Kolmed", "4. Neljad", "5. Viied", "6. Kuued", "7. Maja", "8. Nelik", "9. 1-2-3-4-5", "10. 2-3-4-5-6", "11. Täringute summa", "12. Yacht\n"));
+            ("1. Ühed", "2. Kahed", "3. Kolmed", "4. Neljad", "5. Viied", "6. Kuued",
+                    "7. Maja", "8. Nelik", "9. 1-2-3-4-5", "10. 2-3-4-5-6", "11. Täringute summa", "12. Yacht\n"));
 
 
 
@@ -61,19 +62,18 @@ public class Skoorimine {
                 tingimused.remove("6. Kuued");
                 break;
             case 7:
-                int palju = 0;
-                int praegune = 0;
                 int[] unique = IntStream.of(täringud).distinct().toArray();
-                for(int i = 0; i < 2; i++) {
-                    praegune = unique[i];
-                    for (int num : täringud) {
-                        if (num == praegune){
-                            skoor += num;
-                            palju++;
+                if(unique.length == 2){
+                    int esimene = 0;
+                    int teine = 0;
+                    for(int num : täringud){
+                        if (num == unique[0]) esimene++;
+                        else teine++;
                         }
+                    if((esimene == 3 && teine == 2) || (esimene == 2 && teine == 3)){
+                        skoor += (esimene * unique[0]) + (teine * unique[1]);
                     }
                 }
-                if(palju != 5) skoor = 0;
                 tingimused.remove("7. Maja");
                 break;
             case 8:
