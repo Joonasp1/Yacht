@@ -6,6 +6,7 @@ public class Mäng {
     private Täringud täringud = new Täringud();
     private String valik;
     private Skoorimine skoor = new Skoorimine();
+    private int tingumusvalik;
 
     private int hetkeMängijaIndeks;
 
@@ -51,6 +52,9 @@ public class Mäng {
 
         System.out.println("Valige skoorimistingimus:");
         skoor.näitaTingimused();
+        tingumusvalik = scanner.nextInt();
+        mängija.liidaSkoor(skoor.skoori(tingumusvalik,täringud.getTäringud()));
+        System.out.println(mängija.getNimi() + " Skoor on: " + mängija.getSkoor());
         täringud.setKordus(0);
         System.out.print("Käigu lõpp. Vajutage, et jätkata. ");
         scanner.nextLine();

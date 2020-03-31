@@ -10,6 +10,8 @@ public class Mängija {
 
     public int getSkoor() {return skoor;}
 
+    public void liidaSkoor(int lisaskoor){skoor += lisaskoor;}
+
     public Mängija(String nimi) {
         this.nimi = nimi;
     }
