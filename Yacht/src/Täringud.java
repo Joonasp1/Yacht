@@ -33,7 +33,7 @@ public class Täringud {
         for(int num : täringud){
             väljund.append(num + " ");
         }
-        väljund.append("\nVeeretada saab veel " + (3 - kordus) + " korda");
+        väljund.append("\nVeeretadamise korrad:  " + (3 - kordus));
         return väljund.toString();
     }
 }

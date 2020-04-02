@@ -49,9 +49,10 @@ public class Mäng {
             else täringud.veereta(täringud.getTäringud(), valik);
             täringud.setKordus(täringud.getKordus() + 1);
             System.out.println(täringud.toString());
-            System.out.println("Valige täringud mida uuesti veeretada (1-5 ja eraldage komadega). Kirjuta \"ei\" kui ei soovi veeretada");
-            valik = scanner.next();
-            System.out.println(valik);
+            if(täringud.getKordus()< 3){
+                System.out.println("Valige täringud mida uuesti veeretada (1-5 ja eraldage komadega). Kirjuta \"ei\" kui ei soovi veeretada");
+                valik = scanner.next();
+            }
         }
 
         mängija.liidaSkoor(skoor.skoori(tingumusvalik,täringud.getTäringud()));
