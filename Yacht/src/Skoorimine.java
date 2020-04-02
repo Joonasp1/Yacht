@@ -18,6 +18,8 @@ public class Skoorimine {
             }
     }
 
+    public List<String> getTingimused(){return tingimused;}
+
     public int skoori(int valik, int[] täringud){
         int skoor = 0;
         int[] numbrid = new int[]{1,2,3,4,5,6};
@@ -114,7 +116,7 @@ public class Skoorimine {
                     }
                 }
                 if(sama) skoor += 50;
-                tingimused.remove("12. Yacht");
+                tingimused.remove("12. Yacht\n");
                 break;
         }
 
