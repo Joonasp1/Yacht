@@ -57,8 +57,6 @@ public class Mäng {
         mängija.liidaSkoor(skoor.skoori(tingumusvalik,täringud.getTäringud()));
         System.out.println(mängija.getNimi() + " Skoor on: " + mängija.getSkoor());
         täringud.setKordus(0);
-        System.out.print("Käigu lõpp. Vajutage, et jätkata. ");
-        scanner.nextLine();
         if(skoor.getTingimused().isEmpty()) kokkuvõte(mängijad);
         else järgmine();
     }
